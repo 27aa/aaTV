@@ -14,13 +14,33 @@ Description : projet IPTV avec quelque chaines
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aaTV</title>
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body>
-    <nav>
-        <ul id="channels">
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">CGU</a>
+                </li>
+                <li>
+                    <a href="" id="big">aaTV</a>
+                </li>
+                <li>
+                    <a href="">IMPORT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <ul id="channels">
+            </ul>
+        </section>
+    </main>
+
     <video id="player" controls></video>
     <p id="result"></p>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>

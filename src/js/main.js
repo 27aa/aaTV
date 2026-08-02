@@ -7,6 +7,13 @@
    Description : projet IPTV avec quelque chaines
 */
 
+function CreateElementWithClass(balise, classe, parent){
+    const newElement = document.createElement(balise);
+    newElement.className = classe;
+    parent.appendChild(newElement);
+    return newElement;
+}
+
 const result = document.getElementById("result");
 const m3u = "#EXTM3U \n #EXTINF:-1,ARTE \n https://test-streams.mux.dev/test_001/stream.m3u8 \n #EXTINF:-1,Big Buck Bunny \n https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
 const resultArray = Array();
@@ -30,13 +37,13 @@ m3uTab.forEach(element => {
 });
 
 resultArray.forEach(channel => {
-    const li = document.createElement("li");
+    const li = CreateElementWithClass("li", "channel", channels);
     li.textContent = channel.name;
     li.addEventListener("click", () => {
         result.textContent = channel.url;
-        hls.loadSource(channel.url);
+        const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url); 
+        hls.loadSource(serverSourceUrl);
         hls.attachMedia(player);
     })
-    channels.appendChild(li);
 });
 

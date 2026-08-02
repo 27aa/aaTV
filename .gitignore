@@ -1,0 +1,16 @@
+# Dependances Node
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Variables d'environnement (secrets, cles API)
+.env
+.env.local
+
+# Fichiers systeme macOS
+.DS_Store
+
+# Dossiers d'editeur
+.vscode/
