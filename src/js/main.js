@@ -40,7 +40,6 @@ resultArray.forEach(channel => {
     const li = CreateElementWithClass("li", "channel", channels);
     li.textContent = channel.name;
     li.addEventListener("click", () => {
-        result.textContent = channel.url;
         const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url); 
         hls.loadSource(serverSourceUrl);
         hls.attachMedia(player);
