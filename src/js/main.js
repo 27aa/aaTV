@@ -39,6 +39,7 @@ m3uTab.forEach(element => {
 resultArray.forEach(channel => {
     const li = CreateElementWithClass("li", "channel", channels);
     li.textContent = channel.name;
+    li.classList.add("scaleHover");
     li.addEventListener("click", () => {
         const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url); 
         hls.loadSource(serverSourceUrl);

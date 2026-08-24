@@ -34,4 +34,5 @@ app.get("/stream", async (req, res) => {
 
 app.listen(3000, () => {
     console.log("serveur démaré sur le port 3000");
-})
+});
+

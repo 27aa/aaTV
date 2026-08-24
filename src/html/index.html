@@ -18,19 +18,37 @@ Description : projet IPTV avec quelque chaines
 </head>
 
 <body>
-    <section id="overlay">
+    <section id="importOverlay">
+        <div id="modale">
+            <section id="page1">
+                <button class="scaleHover">Import my own m3u</button>
+                <button class="scaleHover">Channels</button>
+            </section>
+            <section id="importOwnM3u">
+                <label>
+                    upload my own m3u / m3u8
+                    <input type="file" accept=".m3u, .m3u8">
+                </label>
+                <input type="submit">
+            </section>
+            <!-- <section id="page2">
+                <button>Import my own m3u</button>
+                <button>Channels</button>
+            </section> -->
+
+        </div>
     </section>
     <header>
         <nav>
             <ul>
                 <li>
-                    <a href="">CGU</a>
+                    <p class="scaleHover">CGU</p>
                 </li>
                 <li>
-                    <a href="" id="big">aaTV</a>
+                    <p class="scaleHover">aaTV</p>
                 </li>
                 <li>
-                    <a href="" id="importBtn">IMPORT</a>
+                    <p class="scaleHover" id="importBtn">IMPORT</p>
                 </li>
             </ul>
         </nav>

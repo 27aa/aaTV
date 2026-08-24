@@ -1,7 +1,7 @@
 html * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
     font-family: Arial;
 }
 
@@ -14,19 +14,6 @@ body {
     width: 100vw;
     height: 100vh;
 }
-
-#overlay {
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-} 
-
 
 header {
     width: 100vw;
@@ -53,14 +40,15 @@ header>nav>ul {
     list-style: none;
 }
 
-header>nav>ul>li>a {
+header>nav>ul>li>p {
+    cursor: pointer;
     display: inline-block;
     text-decoration: none;
     font-size: 1rem;
     color: rgb(117, 110, 100);
 }
 
-header>nav>ul>li:nth-child(2)>a {
+header>nav>ul>li:nth-child(2)>p {
     font-size: 1.75em;
 }
 
@@ -83,7 +71,7 @@ main>section>ul {
 }
 
 main>section>ul>li {
-    color: rgb(117, 110, 100); 
+    color: rgb(117, 110, 100);
     cursor: pointer;
 }
 
@@ -92,10 +80,85 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap : 4rem;
+    gap: 4rem;
 }
 
 main>video {
     border-radius: 2rem;
     width: 70vw;
+}
+
+.scaleHover:hover {
+    scale: 1.1;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 2rem;
+}
+
+.scaleHover {
+    transition: ease-in-out 0.25s;
+}
+
+#modale {
+    width: 50vw;
+    height: 60vh;
+    background-color: transparent;
+}
+
+#importOverlay {
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#page1 {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 4rem;
+    gap: 2rem;
+    border: 1px solid black;
+}
+
+#page1 button{
+    background-color: rgb(0, 140, 255);
+    width: 70%;
+    height: 10%;
+    color: white;
+    border-radius: 2rem;
+    border: solid black 1px;
+}
+
+#importOwnM3u {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: white;
+    border-radius: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+#importOwnM3u>input:last-child {
+    background-color: rgb(0, 140, 255);
+    width: 60%;
+    height: 8%;
+    color: white;
+    border-radius: 2rem;
+    border: solid black 1px;
+}
+
+#importOwnM3u>label>input {
+    display: flex;
 }
