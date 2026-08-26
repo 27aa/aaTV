@@ -144,15 +144,16 @@ main>video {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 7rem;
     background-color: white;
     border-radius: 4rem;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    box-shadow: inset 0rem 0rem 2rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 #importOwnM3u>input:last-child {
     background-color: rgb(0, 140, 255);
-    width: 60%;
+    width: 50%;
     height: 8%;
     color: white;
     border-radius: 2rem;
@@ -163,11 +164,21 @@ main>video {
     display: none;
 }
 
-#importOwnM3u>label:first-child {
+#importOwnM3u>label {
     padding: 1rem;
     background-color: rgb(0, 140, 255);
     border-radius: 2rem;
     color: white;
     border: solid 1px black;
     text-align: center;
+    width: 30%;
+    margin-bottom: -7.5rem;
+}
+
+#importOwnM3u>h2 {
+    font-size: 1.5rem;
+    position: relative;
+    top: 5rem;
+    border-bottom: 2px solid grey;
+    padding-bottom: 2rem;
 }

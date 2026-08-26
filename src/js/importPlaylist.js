@@ -20,8 +20,12 @@ navImportBtn.addEventListener("click", () => {
 //     overlay.style.display = "none"
 // });
 
-uploadOwnM3u.addEventListener("change", () => {
+uploadOwnM3u.addEventListener("change", async () => {
     const file = clientM3uFile.files[0];
-    console.log(file);
+    const fileText = await file.text();
     ownM3uInputMessage.textContent = file.name;
+    if (fileText.startsWith("#EXTM3U")) {
+        isFileValid = true;
+    }
 });
+
