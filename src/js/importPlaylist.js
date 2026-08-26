@@ -22,10 +22,15 @@ navImportBtn.addEventListener("click", () => {
 
 uploadOwnM3u.addEventListener("change", async () => {
     const file = clientM3uFile.files[0];
-    const fileText = await file.text();
-    ownM3uInputMessage.textContent = file.name;
-    if (fileText.startsWith("#EXTM3U")) {
-        isFileValid = true;
+    if (file) {
+        const fileText = await file.text();
+        ownM3uInputMessage.textContent = file.name;
+        if (fileText.startsWith("#EXTM3U")) {
+            isFileValid = true;
+        } else {
+            alert("Erreur veuillez réessayer");
+            location.reload();
+        }
     }
 });
 
