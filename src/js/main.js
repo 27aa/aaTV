@@ -28,6 +28,17 @@ function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
         } else if (ligne.startsWith("#EXTINF")) {
             const n = currentChannelName.indexOf(",");
             currentChannelName = currentChannelName.slice(n + 1);
+            playlistContent.forEach(channel => {
+                const li = CreateElementWithClass("li", "channel", channelsEmplacementHTML)
+                li.textContent = channel.name;
+                li.classList.add("scaleHover");
+                li.addEventListener("click", () => {
+                    const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
+                    hls.loadSource(serverSourceUrl);
+                    hls.attachMedia(playerHTML);
+                });
+            
+            })
         }
     })
 }
@@ -48,14 +59,16 @@ function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
 //     }
 // });
 
-resultArray.forEach(channel => {
-    const li = CreateElementWithClass("li", "channel", channels);
-    li.textContent = channel.name;
-    li.classList.add("scaleHover");
-    li.addEventListener("click", () => {
-        const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
-        hls.loadSource(serverSourceUrl);
-        hls.attachMedia(player);
-    })
-});
+// resultArray.forEach(channel => {
+    // const li = CreateElementWithClass("li", "channel", channels);
+    // li.textContent = channel.name;
+    // li.classList.add("scaleHover");
+    // li.addEventListener("click", () => {
+        // const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
+        // hls.loadSource(serverSourceUrl);
+        // hls.attachMedia(player);
+    // })
+// });
+
+
 
