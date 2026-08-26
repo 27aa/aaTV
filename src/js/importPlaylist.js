@@ -1,13 +1,17 @@
-const importBtn = document.querySelector("#importBtn");
+const navImportBtn = document.querySelector("#importBtn");
 const overlay = document.querySelector("#importOverlay");
-const importM3uBtn = document.querySelector("#page1 button:first-child");
-const channelsBtn = document.querySelector("#page1 button:last-child");
-
+const page1UploadM3u = document.querySelector("#page1 button:first-child");
+const page1SelectChannels = document.querySelector("#page1 button:last-child");
+const ownM3uSubmitBtn = document.querySelector("#importOwnM3u>input");
+const ownM3uInputMessage = document.querySelector("#importOwnM3u>p");
+const uploadOwnM3u = document.querySelector("#importOwnM3u>label");
+const clientM3uFile = document.querySelector("#importOwnM3u>label>input");
 
 let isOverlayActive = false;
+let isFileValid = false;
 
 
-importBtn.addEventListener("click", () => {
+navImportBtn.addEventListener("click", () => {
     overlay.style.display = "flex";
     isOverlayActive = true;
 });
@@ -16,6 +20,8 @@ importBtn.addEventListener("click", () => {
 //     overlay.style.display = "none"
 // });
 
-importM3uBtn.addEventListener("click", () => {
-    
+uploadOwnM3u.addEventListener("change", () => {
+    const file = clientM3uFile.files[0];
+    console.log(file);
+    ownM3uInputMessage.textContent = file.name;
 });

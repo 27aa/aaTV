@@ -160,5 +160,14 @@ main>video {
 }
 
 #importOwnM3u>label>input {
-    display: flex;
+    display: none;
+}
+
+#importOwnM3u>label:first-child {
+    padding: 1rem;
+    background-color: rgb(0, 140, 255);
+    border-radius: 2rem;
+    color: white;
+    border: solid 1px black;
+    text-align: center;
 }
