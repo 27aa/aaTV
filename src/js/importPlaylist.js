@@ -7,7 +7,7 @@
    Description : projet IPTV avec quelque chaines
 */
 
-import { parseM3u } from "./main";
+import { parseM3u } from "./main.js";
 
 //variable pour import : 
 const navImportBtn = document.querySelector("#importBtn");
