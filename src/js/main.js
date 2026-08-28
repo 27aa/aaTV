@@ -14,7 +14,7 @@ function CreateElementWithClass(balise, classe, parent) {
     return newElement;
 }
 
-function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
+export function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
     const playlistContent = [];
     const channelsList = [];
     const hls = new Hls();
