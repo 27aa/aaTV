@@ -34,3 +34,12 @@ uploadOwnM3u.addEventListener("change", async () => {
     }
 });
 
+ownM3uSubmitBtn.addEventListener("click", async () => {
+    if (isFileValid) {
+        const m3u = await clientM3uFile.files[0].text();
+        overlay.style.display = "none";
+        isOverlayActive = false;
+        alert(m3u);
+    }
+});
+

@@ -93,6 +93,7 @@ main>video {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5px;
     border-radius: 2rem;
+    box-shadow: inset 0rem 0rem 1rem 0.05rem;
 }
 
 .scaleHover {
@@ -101,7 +102,7 @@ main>video {
 
 #modale {
     width: 50vw;
-    height: 60vh;
+    height: 50vh;
     background-color: transparent;
 }
 
@@ -109,7 +110,7 @@ main>video {
     inset: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     position: fixed;
     flex-direction: column;
     justify-content: center;
@@ -145,11 +146,11 @@ main>video {
     display: flex;
     flex-direction: column;
     gap: 7rem;
-    background-color: white;
+    background-color: rgb(228, 216, 202);
     border-radius: 4rem;
     align-items: center;
     justify-content: space-evenly;
-    box-shadow: inset 0rem 0rem 2rem 0.5rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0rem 0rem 3rem 0.5rem white;
 }
 #importOwnM3u>input:last-child {
     background-color: rgb(0, 140, 255);
@@ -158,6 +159,7 @@ main>video {
     color: white;
     border-radius: 2rem;
     border: solid black 1px;
+    margin-bottom: 2rem;
 }
 
 #importOwnM3u>label>input {
@@ -176,9 +178,10 @@ main>video {
 }
 
 #importOwnM3u>h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     position: relative;
-    top: 5rem;
+    top: 1.5rem;
     border-bottom: 2px solid grey;
-    padding-bottom: 2rem;
+    padding: 0rem 2rem 2rem 2rem;
+    color: rgb(117, 110, 100);
 }
