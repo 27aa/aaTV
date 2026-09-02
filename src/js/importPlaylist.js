@@ -31,9 +31,12 @@ navImportBtn.addEventListener("click", () => {
     isOverlayActive = true;
 });
 
-// overlay.addEventListener("click", () => {
-//     overlay.style.display = "none"
-// });
+overlay.addEventListener("click", () => {
+    if (isOverlayActive && event.target == overlay) {
+        overlay.style.display = "none";
+        isOverlayActive = false;
+    }
+});
 
 uploadOwnM3u.addEventListener("change", async () => {
     const file = clientM3uFile.files[0];
