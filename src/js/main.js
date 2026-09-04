@@ -5,6 +5,7 @@
    Classe : I.DA-P1A
    Projet : aaTV
    Description : projet IPTV avec quelque chaines
+   Emplacement : /Users/27aa/Documents/informatique/2026-2027/perso/aaTV
 */
 
 function CreateElementWithClass(balise, classe, parent) {
@@ -14,7 +15,7 @@ function CreateElementWithClass(balise, classe, parent) {
     return newElement;
 }
 
-export function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
+export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playerHTML) {
     const playlistContent = [];
     const hls = new Hls();
     const groupTitleLength = 'group-title="'.length;
@@ -38,13 +39,20 @@ export function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
         }
     });
     playlistContent.forEach(channel => {
-        const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML)
+        const country = CreateElementWithClass("option", "crounty", countryEmplacement);
+        const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML);
+        country.value = channel.group;
         option.value = channel.name;
-        option.classList.add("scaleHover");
-        option.addEventListener("click", () => {
+        option.addEventListener("change", () => {
             const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
             hls.loadSource(serverSourceUrl);
             hls.attachMedia(playerHTML);
         });
     });
+}
+
+function getCountry (playlist) {
+    const countryTab = playlist.map(line =>  {
+        return playlist.group;
+    })
 }
