@@ -17,28 +17,34 @@ function CreateElementWithClass(balise, classe, parent) {
 export function parseM3u(m3u, channelsEmplacementHTML, playerHTML) {
     const playlistContent = [];
     const hls = new Hls();
+    const groupTitleLength = 'group-title="'.length;
     let currentChannelName;
+    let countryGroup;
 
     const channelsList = m3u.split("\n");
     channelsList.forEach(element => {
         const ligne = element.trim();
         if (ligne.startsWith("http")) {
-            playlistContent.push({ name: currentChannelName, url: ligne });
+            playlistContent.push({ name: currentChannelName, url: ligne, group: countryGroup });
         } else if (ligne.startsWith("#EXTINF")) {
+            if (ligne.includes('group-title="')) {
+                const startPoint = ligne.indexOf('group-title="');
+                const endPoint = ligne.indexOf('"', startPoint + groupTitleLength);
+                countryGroup = ligne.slice(startPoint + groupTitleLength, endPoint);
+            }
             currentChannelName = ligne;
             const n = currentChannelName.indexOf(",");
             currentChannelName = currentChannelName.slice(n + 1);
         }
     });
     playlistContent.forEach(channel => {
-        const li = CreateElementWithClass("li", "channel", channelsEmplacementHTML)
-        li.textContent = channel.name;
-        li.classList.add("scaleHover");
-        li.addEventListener("click", () => {
+        const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML)
+        option.value = channel.name;
+        option.classList.add("scaleHover");
+        option.addEventListener("click", () => {
             const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
             hls.loadSource(serverSourceUrl);
             hls.attachMedia(playerHTML);
         });
-
     });
 }

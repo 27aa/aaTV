@@ -1,4 +1,4 @@
-const m3u = '#EXTINF:-1 tvg-name="Qatar Television" tvg-logo="https://i.imgur.com/N5RB4sp.png" tvg-id="QatarTelevision.qa" tvg-chno="1" tvg-country="QA" group-title="Qatar",Qatar Television';
+const m3u = '#EXTINF:-1 tvg-name="ICTV Serialy" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7a/ICTV_Serialy_%282024%29.png" tvg-id="ICTVSerialy.ua" tvg-chno="7" tvg-country="UA" group-title="Ukraine",ICTV Serialy';
 const groupLength = 'group-title="'.length;
 // const cleanM3u = m3u.trim();
 
