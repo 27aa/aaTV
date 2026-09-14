@@ -52,8 +52,7 @@ export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playe
     });
 }
 
-function getCountry (playlist) {
-    const countryTab = playlist.map(line =>  {
-        return playlist.group;
-    });
+function sortCountry(rawCountryTab) {
+    cleanCountryTab = [...new Set(rawCountryTab)].sort();
+    return cleanCountryTab;
 }
