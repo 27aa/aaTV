@@ -38,14 +38,13 @@ export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playe
             currentChannelName = currentChannelName.slice(n + 1);
         }
     });
-    const countryEmplacement = document.querySelector("#countries");
-    const channelsEmplacementHTML = document.querySelector("#channels");
+
     playlistContent.forEach(channel => {
         const country = CreateElementWithClass("option", "crounty", countryEmplacement);
         const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML);
         country.value = channel.group;
         option.value = channel.name;
-        option.addEventListener("change", () => {
+        channelsEmplacementHTML.addEventListener("change", () => {
             const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
             hls.loadSource(serverSourceUrl);
             hls.attachMedia(playerHTML);

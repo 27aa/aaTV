@@ -25,6 +25,7 @@ let isFileValid = false;
 
 //variable pour affichage : 
 const channelsEmplacementHTML = document.querySelector("#channels");
+const countryEmplacement = document.querySelector("#countries");
 const videoPlayer = document.querySelector("#player");
 
 navImportBtn.addEventListener("click", () => {
@@ -58,7 +59,7 @@ ownM3uSubmitBtn.addEventListener("click", async () => {
         const m3u = await clientM3uFile.files[0].text();
         overlay.style.display = "none";
         isOverlayActive = false;
-        parseM3u(m3u, channelsEmplacementHTML, videoPlayer);
+        parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, videoPlayer);
     }
 });
 
