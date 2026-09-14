@@ -38,6 +38,8 @@ export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playe
             currentChannelName = currentChannelName.slice(n + 1);
         }
     });
+    const countryEmplacement = document.querySelector("#countries");
+    const channelsEmplacementHTML = document.querySelector("#channels");
     playlistContent.forEach(channel => {
         const country = CreateElementWithClass("option", "crounty", countryEmplacement);
         const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML);
@@ -54,5 +56,5 @@ export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playe
 function getCountry (playlist) {
     const countryTab = playlist.map(line =>  {
         return playlist.group;
-    })
+    });
 }

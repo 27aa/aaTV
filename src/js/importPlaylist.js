@@ -8,6 +8,7 @@
 */
 
 import { parseM3u } from "./main.js";
+/*tslint:disabled*/
 
 //variable pour import : 
 const navImportBtn = document.querySelector("#importBtn");
@@ -31,7 +32,7 @@ navImportBtn.addEventListener("click", () => {
     isOverlayActive = true;
 });
 
-overlay.addEventListener("click", () => {
+overlay.addEventListener("click", (event) => {
     if (isOverlayActive && event.target == overlay) {
         overlay.style.display = "none";
         isOverlayActive = false;
