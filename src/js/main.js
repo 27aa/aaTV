@@ -15,6 +15,7 @@ function CreateElementWithClass(balise, classe, parent) {
     return newElement;
 }
 
+
 export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playerHTML) {
     const playlistContent = [];
     const hls = new Hls();
@@ -39,20 +40,42 @@ export function parseM3u(m3u, channelsEmplacementHTML, countryEmplacement, playe
         }
     });
 
-    playlistContent.forEach(channel => {
-        const country = CreateElementWithClass("option", "crounty", countryEmplacement);
-        const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML);
-        country.value = channel.group;
-        option.value = channel.name;
-        channelsEmplacementHTML.addEventListener("change", () => {
-            const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
-            hls.loadSource(serverSourceUrl);
-            hls.attachMedia(playerHTML);
-        });
+    const allGroup = playlistContent.map(channel => {
+        return channel.group;
     });
+
+    const countries = sortCountry(allGroup);
+
+    countries.forEach(country => {
+        const option = CreateElementWithClass("option", "country", countryEmplacement);
+        option.value = country;
+        option.textContent = country;
+    });
+
+    countryEmplacement.addEventListener("change", () => {
+        const selectedCountry = countryEmplacement.value;
+        const countryChannels = playlistContent.filter(channel => channel.group === selectedCountry);
+    })
+
+    // playlistContent.forEach(channel => {
+    //     const country = [];
+    //     const option = CreateElementWithClass("option", "channel", channelsEmplacementHTML);
+    //     country.push(channel.group);
+    //     option.value = channel.name;
+    //     channelsEmplacementHTML.addEventListener("change", () => {
+    //         const serverSourceUrl = "http://localhost:3000/stream?url=" + encodeURIComponent(channel.url);
+    //         hls.loadSource(serverSourceUrl);
+    //         hls.attachMedia(playerHTML);
+    //     });
+    // });
+    
+}
+
+function sortChannelsCountry(country) {
+
 }
 
 function sortCountry(rawCountryTab) {
-    cleanCountryTab = [...new Set(rawCountryTab)].sort();
+    const cleanCountryTab = [...new Set(rawCountryTab)].sort();
     return cleanCountryTab;
 }
