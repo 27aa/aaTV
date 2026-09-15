@@ -40,7 +40,12 @@ header>nav>ul {
     list-style: none;
 }
 
-header>nav>ul>li>p {
+#theme>svg {
+    width: 1.5rem;
+}
+
+header>nav>ul>li>p, 
+header>nav>ul>li>img {
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
